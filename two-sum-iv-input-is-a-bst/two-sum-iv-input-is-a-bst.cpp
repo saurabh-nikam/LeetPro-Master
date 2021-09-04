@@ -11,35 +11,38 @@
  */
 class Solution {
 public:
-    void inorder(TreeNode* root,vector<int>&arr)
-    {
-        if(root == NULL)
-            return;
-        inorder(root->left,arr);
-        arr.push_back(root->val);
-        inorder(root->right,arr);
-    }
+    // vector<int>arr;
+    // void inorder(TreeNode*root){
+    //     if(root==NULL){
+    //         return;
+    //     }
+    //     inorder(root->left);
+    //     arr.push_back(root->val);
+    //     inorder(root->right);
+    // }
+    // bool findTarget(TreeNode* root, int k) {
+    //     arr.clear();
+    //     inorder(root);
+    //     int l=0,r = arr.size()-1;
+    //     while(l<r){
+    //         int sum = arr[l]+arr[r];
+    //         if(sum==k){
+    //             return true;
+    //         }
+    //         else if(sum<k){
+    //             l++;
+    //         }
+    //         else{
+    //             r--;
+    //         }
+    //     }
+    //     return false;
+        unordered_set<int> s;
     bool findTarget(TreeNode* root, int k) {
-       vector<int>ans;
-        inorder(root,ans);
-        int n = ans.size();
-        int first = 0;
-        int last = n-1;
-        while(first < last)
-        {
-            int val = ans[first]+ans[last];
-            if(val == k)
-            {
-                return true;
-            }else if(val < k)
-            {
-                first++;
-            }else
-            {
-                last--;
-            }
-        }
-        return false;
-        
+        if (!root) return false;
+        if (s.count(k - root->val)) return true;
+        s.insert(root->val);
+        return findTarget(root->left, k) || findTarget(root->right, k);
     }
+    
 };
