@@ -1,6 +1,6 @@
 <h2>15. 3Sum</h2><h3>Medium</h3><hr><div><p>Given an integer array nums, return all the triplets <code>[nums[i], nums[j], nums[k]]</code> such that <code>i != j</code>, <code>i != k</code>, and <code>j != k</code>, and <code>nums[i] + nums[j] + nums[k] == 0</code>.</p>
 
-<p>Notice that the solution set must not contain duplicate triplets.</p>
+<p>Notice that the solution set must not contain duplicate triplets.(assume that solution always exists)</p>
 
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
