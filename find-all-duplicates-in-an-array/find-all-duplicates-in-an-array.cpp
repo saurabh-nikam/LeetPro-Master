@@ -1,28 +1,28 @@
 class Solution {
-    std::vector<int> numCount;
 public:
-
-    vector<int> findDuplicates(vector<int>& n)
+    void sort(vector<int>&arr)
     {
-        vector<int> duplicates;
-        sort(n.begin(),n.end());
-        
-//         for(int i=0;i<n.size();i++)
-//         { 
-//             // evaluate index of selected element if array would have been sorted..
-//             int indexOfElem = abs(n[i]) - 1;
-            
-//             if(indexOfElem < n.size() && n[indexOfElem] != indexOfElem +1)
-//             {
-//                 swap(n[indexOfElem],n[i]);
-//             }
-            
-//         }
-        for(int i = 0;i<n.size()-1;i++)
+        int n = arr.size();
+        int i = 0;
+        while( i < n)
         {
-            if(n[i] == n[i+1])//1 2 2 3 3 4 5 6 7 8
-                duplicates.push_back(n[i]);
+            int correct = arr[i]-1;
+            if(correct >= 0 && correct  < n && arr[i] != arr[correct])
+                swap(arr[i],arr[correct]);
+            else 
+                i++;
         }
-        return duplicates;
+    }
+    vector<int> findDuplicates(vector<int>& arr) {
+        int n = arr.size();
+        sort(arr);
+        vector<int>ans;
+        for(int i = 0;i<n;i++)
+        {
+            if(arr[i] != i+1)
+                ans.push_back(arr[i]);
+        }
+        return ans;
+        
     }
 };
