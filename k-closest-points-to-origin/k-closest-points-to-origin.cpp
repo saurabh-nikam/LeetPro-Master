@@ -13,7 +13,8 @@ public:
             if(k-- > 0)
             {
                 ans.push_back({itr.second.first,itr.second.second});
-            }
+            }else
+                break;
         }
         return ans;
         
