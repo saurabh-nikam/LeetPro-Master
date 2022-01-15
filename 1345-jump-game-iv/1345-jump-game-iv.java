@@ -40,6 +40,6 @@ class Solution {
             }
         }
         
-        return step;
+        return step-1;
     }
 }
