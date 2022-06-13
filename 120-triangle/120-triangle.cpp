@@ -1,0 +1,22 @@
+class Solution {
+    
+    // this question is osvled using compcet of dp on matrix wher we keep tract of minimu 
+    //minumum till date and add next mnumim no t by greedy 
+    //use bottom up aprroch
+    //statrt from bottom
+    
+public:
+   int minimumTotal(vector<vector<int> > &triangle) {
+    int n = triangle.size();
+    vector<int> minlen(triangle.back());
+    for (int layer = n-2; layer >= 0; layer--) // For each layer
+    {
+        for (int i = 0; i <= layer; i++) // Check its every 'node'
+        {
+            // Find the lesser of its two children, and sum the current value in the triangle with it.
+            minlen[i] = min(minlen[i], minlen[i+1]) + triangle[layer][i]; 
+        }
+    }
+    return minlen[0];
+}
+};
