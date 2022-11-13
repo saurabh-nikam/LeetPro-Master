@@ -2,6 +2,6 @@
  * @param {string} s
  * @return {string}
  */
-const reverseWords = s => {
-    return s.split(' ').reverse().filter(word => word !== '').join(' ');  
+const reverseWords = inputString => {
+    return inputString.split(' ').reverse().filter(word => word !== '').join(' ');  
 };
